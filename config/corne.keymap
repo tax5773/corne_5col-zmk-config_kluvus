@@ -19,13 +19,13 @@
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
+		bindings = <
+&none  &kp Q  &kp W  &kp E     &kp R      &kp T          &kp Y           &kp U        &kp I         &kp O    &kp P     &none
+&none  &kp A  &kp S  &kp D     &kp F      &kp G          &kp H           &kp J        &kp K         &kp L    &kp SEMI  &none
+&none  &kp Z  &kp X  &kp C     &kp V      &kp B          &kp N           &kp M        &kp COMMA     &kp DOT  &kp FSLH  &none
+                     &kp LGUI  &kp LCTRL  &lt 1 SPACE    &kp LEFT_SHIFT  &lt 2 ENTER  &kp LEFT_ALT
+            	>;                
+	};
                 lower_layer {
                         display-name = "Lower Layer";
 // -----------------------------------------------------------------------------------------
@@ -33,13 +33,13 @@
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
+                bindings = <
+&none  &kp ESCAPE    &kp N7        &kp N8        &kp N4        &kp BACKSPACE    &to 1    &kp MINUS  &kp UP    &kp EQUAL          &kp N0            &none
+&none  &kp CAPSLOCK  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &none            &to 2    &kp LEFT   &kp DOWN  &kp RIGHT          &kp LEFT_BRACKET  &none
+&none  &none         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N0           &to 3    &none      &none     &kp RIGHT_BRACKET  &kp SQT           &none
+                                   &kp LGUI      &kp RCTRL     &to 0            &kp RET  &to 0      &kp RALT
+            	>;
+		};
 
                 raise_layer {
                         display-name = "Raise Layer";
@@ -48,12 +48,20 @@
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+                bindings = <
+&none  &kp ESCAPE    &kp F9  &kp F10   &kp F11    &kp F12    &to 1           &mkp MB1        &mmv MOVE_UP    &mkp MB2         &msc SCRL_UP    &none
+&none  &kp DELETE    &kp F5  &kp F6    &kp F7     &kp F8     &to 2           &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN  &none
+&none  &kp LEFT_ALT  &kp F1  &kp F2    &kp F3     &kp F4     &to 3           &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &none           &none
+                             &kp LGUI  &kp LCTRL  &to 0      &kp LEFT_SHIFT  &to 0           &kp LALT
+            	>;
+		};
+		layer_3 {
+            		bindings = <
+&none  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &to 1   &trans  &trans  &trans  &trans  &none
+&none  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &to 2   &trans  &trans  &trans  &trans  &none
+&none  &trans        &trans          &trans        &trans        &bootloader     &to 3   &trans  &trans  &trans  &trans  &none
+                                     &trans        &trans        &to 0           &trans  &to 0   &trans
+            		>;
+        	};
         };
 };
